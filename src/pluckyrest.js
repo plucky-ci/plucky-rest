@@ -4,7 +4,6 @@ const Boom = require('boom');
 let request = require('request');
 
 const RequestET = (options, callback)=>{ // Request with basic error trapping built in
-  console.log('Outbound started: ', options);
   if(options.host){
 	options.headers = options.headers || {};
 	options.headers.host = options.host;
@@ -20,7 +19,6 @@ const RequestET = (options, callback)=>{ // Request with basic error trapping bu
 	return parts.join('?');
   })(options.url);
   request(options, (error, resp, payload)=>{
-	console.log('Outbound completed: ', options, error || payload);
 	if(error){
 	  let err = Boom.badRequest(error);
 	  err.output.statusCode = 500;
