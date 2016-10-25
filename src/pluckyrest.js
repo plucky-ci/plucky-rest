@@ -55,7 +55,7 @@ const RequestET = (options, callback)=>{ // Request with basic error trapping bu
 };
 
 class PluckyRest extends Task {
-	handler(state, next) {
+	execute(state, next) {
 		const {
 			params = {},
 		} = state;
@@ -63,15 +63,13 @@ class PluckyRest extends Task {
 			return next(1, {status: 'No url configured'});
 		}
 
-		RequestET({
-			url: params.url,
-			headers: params.headers
-		}, (err, result) => {
+		RequestET(params, (err, result) => {
 			if(err) {
-				return next(1, {status: err.output.statusCode});
+				return next(1, {status: err.output});
 			}
-
-			return next(0, {data: result});
+			return next(0, {result});
 		});
 	}
 }
+
+module.exports = { PluckyRest };

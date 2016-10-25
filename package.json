@@ -23,6 +23,7 @@
   "homepage": "https://github.com/plucky-ci/plucky-rest#readme",
   "dependencies": {
     "boom": "^4.2.0",
+    "nock": "^9.0.0",
     "plucky-pipeliner": "0.0.1",
     "request": "^2.75.0"
   }
