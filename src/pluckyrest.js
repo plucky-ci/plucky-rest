@@ -55,7 +55,7 @@ const RequestET = (options, callback)=>{ // Request with basic error trapping bu
 };
 
 class PluckyRest extends Task {
-	execute(state, next) {
+	handler(state, next) {
 		const {
 			params = {},
 		} = state;
@@ -72,4 +72,4 @@ class PluckyRest extends Task {
 	}
 }
 
-module.exports = { PluckyRest };
+module.exports = { PluckyRest, RequestET };
